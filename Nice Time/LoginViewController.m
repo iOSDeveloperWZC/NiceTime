@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-
+#import "RegisViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 @interface LoginViewController ()
 {
     UIImageView *BGImageView;
@@ -87,7 +88,7 @@
     leftLineView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:leftLineView];
     
-    otherAccountLable = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(leftLineView.frame), CGRectGetMaxY(loginButton.frame)+40, 100, 21)];
+    otherAccountLable = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(leftLineView.frame), CGRectGetMaxY(loginButton.frame)+30, 100, 21)];
     otherAccountLable.font = [UIFont systemFontOfSize:14];
     otherAccountLable.textAlignment = NSTextAlignmentCenter;
     otherAccountLable.text = @"其他账号登录";
@@ -117,6 +118,7 @@
     forgetPasswordButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [forgetPasswordButton setTitle:@"忘记密码?" forState:UIControlStateNormal];
     [forgetPasswordButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [forgetPasswordButton addTarget:self action:@selector(forgetPassword) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:forgetPasswordButton];
     
     registButton= [UIButton buttonWithType:UIButtonTypeCustom];
@@ -124,17 +126,41 @@
     registButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [registButton setTitle:@"我要注册" forState:UIControlStateNormal];
     [registButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [registButton addTarget:self action:@selector(regisButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:registButton];
 
 }
 
+//隐藏键盘
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
 }
+
+//登录
 -(void)loginButtonAction
 {
-    NSLog(@"登录");
+    
+    [AVUser logInWithUsernameInBackground:accountField.text password:passwordField.text block:^(AVUser *user, NSError *error) {
+        if (user != nil) {
+            NSLog(@"登陆成功");
+        } else {
+            NSLog(@"登error:%@",error);
+        }
+    }];
+}
+
+//注册
+-(void)regisButtonAction
+{
+    RegisViewController *vc = [[RegisViewController alloc]init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+//忘记密码
+-(void)forgetPassword
+{
+
 }
 
 @end

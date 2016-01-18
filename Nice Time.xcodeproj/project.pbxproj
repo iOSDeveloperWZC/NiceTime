@@ -33,6 +33,7 @@
 		26A0C9981C4227E500553F64 /* btn_我的1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26A0C9961C4227E500553F64 /* btn_我的1@2x.png */; settings = {ASSET_TAGS = (); }; };
 		26A0C99A1C4229B700553F64 /* home_tab_icon_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26A0C9991C4229B700553F64 /* home_tab_icon_3@2x.png */; settings = {ASSET_TAGS = (); }; };
 		26ED797D1C47D7D600011A80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26ED797C1C47D7D600011A80 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		26F87A1B1C4A9D96007E6275 /* RegisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F87A1A1C4A9D96007E6275 /* RegisViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FCA0DB6F12996B70EB16E128 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA012D58B8BA5B372569564 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,8 @@
 		26A0C9961C4227E500553F64 /* btn_我的1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_我的1@2x.png"; sourceTree = "<group>"; };
 		26A0C9991C4229B700553F64 /* home_tab_icon_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_tab_icon_3@2x.png"; sourceTree = "<group>"; };
 		26ED797C1C47D7D600011A80 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		26F87A191C4A9D96007E6275 /* RegisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisViewController.h; sourceTree = "<group>"; };
+		26F87A1A1C4A9D96007E6275 /* RegisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisViewController.m; sourceTree = "<group>"; };
 		7BA012D58B8BA5B372569564 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D38966B358B12FD3F01493 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9A8B1C2FB677927852C7416D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		266C1AA81C47357E0030CC10 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				26F87A151C4A9D6B007E6275 /* 注册 */,
 				266C1AA91C4735A50030CC10 /* 登录 */,
 			);
 			name = Controller;
@@ -291,6 +295,15 @@
 				26A0C98F1C4224CD00553F64 /* SquareDynamicVC.m */,
 			);
 			name = "广场动态";
+			sourceTree = "<group>";
+		};
+		26F87A151C4A9D6B007E6275 /* 注册 */ = {
+			isa = PBXGroup;
+			children = (
+				26F87A191C4A9D96007E6275 /* RegisViewController.h */,
+				26F87A1A1C4A9D96007E6275 /* RegisViewController.m */,
+			);
+			name = "注册";
 			sourceTree = "<group>";
 		};
 		376A62F9E05C2DF0B1BB9A09 /* Pods */ = {
@@ -523,6 +536,7 @@
 				26A0C9871C42248E00553F64 /* PersonCenterVC.m in Sources */,
 				266C1AB51C47518D0030CC10 /* LoginViewController.m in Sources */,
 				26A0C9801C42234300553F64 /* MainTabBarViewController.m in Sources */,
+				26F87A1B1C4A9D96007E6275 /* RegisViewController.m in Sources */,
 				26A0C9491C42220D00553F64 /* main.m in Sources */,
 				26A0C98A1C4224A100553F64 /* LoginVC.m in Sources */,
 				26A0C98D1C4224B100553F64 /* FirstPageVC.m in Sources */,
