@@ -23,9 +23,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     [self setUpSubView];
 }
 
+-(void)initNav
+{
+    UILabel *lable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
+    lable.textColor = [UIColor whiteColor];
+    lable.adjustsFontSizeToFitWidth = YES;
+    lable.font = [UIFont systemFontOfSize:23];
+    lable.textAlignment = UITextAlignmentCenter;
+    lable.text = @"注册账号";
+    self.navigationItem.titleView = lable;
+    self.view.backgroundColor = [UIColor whiteColor];
+}
 -(void)setUpSubView
 {
     self.view.backgroundColor = [UIColor whiteColor];
@@ -78,7 +90,7 @@
     [self.view addSubview:verifyCodeField];
     
     loginButton  = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginButton.frame = CGRectMake(40, CGRectGetMaxY(fetchVerifyCodeButton.frame)+40, kScreenWidth - 40*2, 40);
+    loginButton.frame = CGRectMake(40, CGRectGetMaxY(fetchVerifyCodeButton.frame)+150, kScreenWidth - 40*2, 40);
     [loginButton setBackgroundColor:[UIColor colorWithRed:36.0/255 green:175.0/255 blue:19.0/255 alpha:1]];
     
     loginButton.layer.borderColor = [UIColor lightGrayColor].CGColor;

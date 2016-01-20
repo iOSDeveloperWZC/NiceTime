@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisViewController.h"
+#import "ForgetPasswordVerifyPhoneViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 @interface LoginViewController ()
 {
@@ -39,19 +40,29 @@
 
 -(void)creatSubView
 {
-    
+    //返回字体设置颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithWhite:0.1 alpha:1];
+    UILabel *lable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
+    lable.textColor = [UIColor whiteColor];
+    lable.adjustsFontSizeToFitWidth = YES;
+    lable.font = [UIFont systemFontOfSize:23];
+    lable.textAlignment = UITextAlignmentCenter;
+    lable.text = @"Nice Time";
+    self.navigationItem.titleView = lable;
     self.view.backgroundColor = [UIColor whiteColor];
 //    BGImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
 //    BGImageView.image = [UIImage imageNamed:@"a.png"];
 //    
    // [self.view addSubview:BGImageView];
     CGFloat rate = (CGFloat)235.0/134;// :W/H
-    LogoImageView = [[UIImageView alloc]initWithFrame:CGRectMake(60, 50, kScreenWidth - 120 ,(kScreenWidth - 120)/rate)];
+    LogoImageView = [[UIImageView alloc]initWithFrame:CGRectMake(60,80, kScreenWidth - 120 ,(kScreenWidth - 120)/rate)];
 //    LogoImageView.backgroundColor = [UIColor redColor];
     LogoImageView.image = [UIImage imageNamed:@"Logo.png"];
     [self.view addSubview:LogoImageView];
     
-    accountField = [[UITextField alloc]initWithFrame:CGRectMake(30, CGRectGetMaxY(LogoImageView.frame) + 40+10, kScreenWidth - 60, 38)];
+    accountField = [[UITextField alloc]initWithFrame:CGRectMake(30, CGRectGetMaxY(LogoImageView.frame) + 35, kScreenWidth - 60, 38)];
     accountField.keyboardType = UIKeyboardTypeNamePhonePad;
     accountField.layer.cornerRadius = 5;
     accountField.layer.borderWidth = 1;
@@ -154,13 +165,22 @@
 -(void)regisButtonAction
 {
     RegisViewController *vc = [[RegisViewController alloc]init];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc]init];
+    buttonItem.title = @"返回";
+    buttonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.backBarButtonItem = buttonItem;
+    
+}
 //忘记密码
 -(void)forgetPassword
 {
-
+    ForgetPasswordVerifyPhoneViewController *vc = [[ForgetPasswordVerifyPhoneViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

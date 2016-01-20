@@ -26,10 +26,11 @@
                       clientKey:@"NQdIdH6vy3PYiT2XeEarfhDS"];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
-    MainTabBarViewController *MainVC = [[MainTabBarViewController alloc]init];
     LoginViewController *vc = [[LoginViewController alloc]init];
-    self.window.rootViewController = vc;
-    // Override point for customization after application launch.
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+
+    self.window.rootViewController = nav;
+    
     return YES;
 }
 
