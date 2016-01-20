@@ -110,6 +110,7 @@
     [self.view endEditing:YES];
 }
 
+//获取验证码
 -(void)fetchVerifyButtonAction
 {
     

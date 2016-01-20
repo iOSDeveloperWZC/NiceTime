@@ -78,6 +78,7 @@
     
     verifyPhoneButton  = [UIButton buttonWithType:UIButtonTypeCustom];
     verifyPhoneButton.frame = CGRectMake(40, CGRectGetMaxY(fetchVerifyCodeButton.frame)+150, kScreenWidth - 40*2, 40);
+    
     [verifyPhoneButton setBackgroundColor:[UIColor colorWithRed:36.0/255 green:175.0/255 blue:19.0/255 alpha:1]];
     
     verifyPhoneButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -87,7 +88,7 @@
     [verifyPhoneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [verifyPhoneButton addTarget:self action:@selector(verifyButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    verifyPhoneButton.enabled = NO;
+   
     [self.view addSubview:verifyPhoneButton];
 
 }
@@ -104,26 +105,32 @@
     buttonItem.title = @"返回";
     buttonItem.tintColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem = buttonItem;
-    
 }
 
 //验证手机
 -(void)verifyButtonAction
 {
+    //手机验证成功之后进行模态视图跳转
     
 }
 
--(void)resetPassword
-{
-    ForgetPasswordResetPasswordViewController *vc = [[ForgetPasswordResetPasswordViewController alloc]init];
-    [self presentViewController:vc animated:YES completion:nil];
-}
 
+//获取验证码
 -(void)fetchVerifyButtonAction
 {
-    
+    //在此需要进行安全检测
+    [AVUser requestPasswordResetWithPhoneNumber:phoneNumberField.text block:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            
+//            ForgetPasswordResetPasswordViewController *vc = [[ForgetPasswordResetPasswordViewController alloc]init];
+//            [self presentViewController:vc animated:YES completion:nil];
+        } else {
+            //提示获取失败
+        }
+    }];
 }
 
+//隐藏键盘
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
